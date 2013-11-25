@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Firefox Marketplace</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+            <header class="header">
+                <h1 class="logo"></h1>
+            </header>
+            <nav class="swiss">
+                <li><a href="#" class="selected">Documentation</a></li>
+                <li><a href="#">Developer API</a></li>
+                <li><a href="#">Testing Tools</a></li>
+            </nav>
+            <div class="content submit-content">
+                <form>
+                    <section class="submit-section submit-section-type">
+                        <h1 class="step step-type">Select app type</h1>
+                        <ul class="submit-buttons">
+                            <li data-type="hosted"><a href="#hosted">Hosted</a></li>
+                            <li data-type="packaged"><a href="#packaged">Packaged</a></li>
+                        </ul>
+                    </section>
+                    <section class="submit-section submit-section-upload">
+                        <h1 class="step step-upload step-active">Upload</h1>
+                        <p>Submit your app manifest URL</p>
+                        <input type="url" name="manifest=">
+                    </section>
+                    <section class="submit-section submit-section-details">
+                        <h1 class="step step-details">Details</h1>
+                        <p>
+                            One-handed/two-handed/desktop
+
+                            Feature requirements
+
+                            Logo, Description, Slug, Categories, Privacy Policy, Screenshots,
+                            Homepage, Support URL, Support Email
+
+                            Offline
+
+                            Price
+
+                            Languages
+
+                            Publish ASAP
+                        </p>
+                    </section>
+                    <section class="submit-section submit-section-preview">
+                        <h1 class="step step-preview">Preview</h1>
+                        <p></p>
+                    </section>
+                </form>
+            </div>
+        </main>
+        <script>
+            var d = document;
+            var hosted = d.querySelector('[data-type=hosted]');
+            var packaged = d.querySelector('[data-type=packaged]');
+            function toggleSubmitTypes() {
+                var hash = window.location.hash;
+                if (hash === '#hosted') {
+                    packaged.classList.remove('selected');
+                    hosted.classList.add('selected');
+                } else {
+                    packaged.classList.add('selected');
+                    hosted.classList.remove('selected');
+                }
+            }
+            window.addEventListener('hashchange', function() {
+                toggleSubmitTypes();
+            }, false);
+            toggleSubmitTypes();
+        </script>
+    </body>
+</html>

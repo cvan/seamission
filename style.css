@@ -1,0 +1,604 @@
+@font-face {
+    font-family: swis-bold-web;
+    src: url("fonts/swis-bol-webfont.eot");
+    src: url("fonts/swis-bol-webfont.eot?#iefix") format("embedded-opentype"),
+         url("fonts/swis-bol-webfont.woff") format("woff"),
+         url("fonts/swis-bol-webfont.ttf") format("truetype"),
+         url("fonts/swis-bol-webfont.svg#swis_boldbold") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: cosmic-sans-neue-mono-web;
+    src: url("fonts/cosmicsansneuemonobold-webfont.eot");
+    src: url("fonts/cosmicsansneuemonobold-webfont.eot?#iefix") format("embedded-opentype"),
+         url("fonts/cosmicsansneuemonobold-webfont.woff") format("woff"),
+         url("fonts/cosmicsansneuemonobold-webfont.ttf") format("truetype"),
+         url("fonts/cosmicsansneuemonobold-webfont.svg#cosmicsansneuemonobold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: cosmic-sans-neue-mono-web;
+    src: url("fonts/cosmicsansneuemono-webfont.eot");
+    src: url("fonts/cosmicsansneuemono-webfont.eot?#iefix") format("embedded-opentype"),
+         url("fonts/cosmicsansneuemono-webfont.woff") format("woff"),
+         url("fonts/cosmicsansneuemono-webfont.ttf") format("truetype"),
+         url("fonts/cosmicsansneuemono-webfont.svg#cosmicsansneuemonoregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FeuraSansWeb";
+    src: url("fonts/FeuraSans/FeuraSansWeb-Light.woff") format("woff"),
+         url("fonts/FeuraSans/FeuraSansWeb-Light.svg#FeuraSansWebLight") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FeuraSansWeb";
+    src: url("fonts/FeuraSans/FeuraSansWeb-Regular.woff") format("woff"),
+         url("fonts/FeuraSans/FeuraSansWeb-Regular.svg#FeuraSansWebRegular") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FeuraSansWeb";
+    src: url("fonts/FeuraSans/FeuraSansWeb-Medium.woff") format("woff"),
+         url("fonts/FeuraSans/FeuraSansWeb-Medium.svg#FeuraSansWebMedium") format("svg");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FeuraSansWeb";
+    src: url("fonts/FeuraSans/FeuraSansWeb-Bold.woff") format("woff"),
+         url("fonts/FeuraSans/FeuraSansWeb-Bold.svg#FeuraSansWebBold") format("svg");
+    font-weight: 600;
+    font-style: normal;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    font-weight: normal;
+    text-align: left;
+    vertical-align: middle;
+}
+
+q, blockquote {
+    quotes: none;
+}
+
+q:before, q:after,
+blockquote:before, blockquote:after {
+    content: "";
+    content: none;
+}
+
+a img {
+    border: none
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu,
+nav, section, summary {
+    display: block;
+}
+
+img {
+    width: 100%;
+}
+
+
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
+
+/*
+input, button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+*/
+
+/* >> The Magnificent CLEARFIX <<
+   Lifted from html5boilerplate.com
+   License is Public domain */
+.c:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.c { display: inline-block; }
+* html .c { height: 1%; } /* Hides from IE-mac \*/
+.c { display: block; }
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+html, body {
+    background: #eceef4; /* eceef4; */ /*f4f3ec;*/ /*e7e7e7;*/
+    height: 100%;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(255,0,0,.6);
+    font: 14px FeuraSansWeb, "Feura Sans", sans-serif;
+}
+
+a {
+    color: #444;
+}
+
+h1 {
+    color: #333;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.header {
+    /*background: #fff url(devhub.png) 30px 50% no-repeat;*/
+    /*background: #fff;*/
+    /*padding: 40px 30px;*/
+}
+
+.logo h1 {
+    color: #fff;
+}
+
+.motto {
+    font-size: 18px;
+}
+
+nav {
+    display: none;
+    color: #333;
+    font-size: 0;
+    font-weight: 300;
+    list-style: none;
+}
+
+nav li,
+nav a {
+    display: inline-block;
+}
+
+nav li {
+    border-right: 1px solid #bbb;
+}
+
+nav a {
+    color: #666;
+    font-size: 12px;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a:not(.selected):hover {
+    color: #333;
+}
+
+nav .selected {
+    background: #666;
+    color: #fff;
+}
+
+.places {
+    font-size: 0;
+}
+
+.places li {
+    display: inline-block;
+    margin: 0 1px 1px 0;
+    min-height: 350px;
+    /*max-width: 400px;*/
+    width: 33.26%;
+}
+
+.places li.noir-lounge {
+    background-size: 150% auto;
+    background-position: 80% 0;
+}
+
+.places li.noir-lounge a {
+    background: rgba(255,255,255,0);
+}
+
+.places li.per-diem {
+    background-size: 130% auto;
+}
+
+.places li.per-diem a {
+    background: rgba(255,255,255,.1);
+    color: #111;
+}
+
+.places li.per-diem .description {
+    color: #333;
+}
+
+.places li.fleur-de-lys {
+    background-size: 125% auto;
+}
+
+.places li.trace {
+    background-size: 125% auto;
+}
+
+.places li.hakkasan {
+    background-size: 125% auto;
+    background-position: 0 90%;
+}
+
+.places li.roka-akor {
+    background-size: 125% auto;
+    background-position: 0 90%;
+}
+
+.places li.the-cavalier {
+    background-size: 125% auto;
+    background-position: 0 90%;
+}
+
+.places li.the-cavalier a {
+    color: #111;
+}
+
+.places li.the-cavalier .description {
+    color: #555;
+}
+
+.places li.anzu {
+    background-size: 105% auto;
+    background-position: 0 60%;
+}
+
+.places li.gitane {
+    background-size: 105% auto;
+}
+
+.places li.house-of-shields {
+    background-size: 110% auto;
+    background-position: 10% 0;
+}
+
+.places li.house-of-shields a {
+    background: rgba(255,255,255,.1);
+}
+
+.places li.bar-agricole {
+    background-size: 100% auto;
+}
+
+.places li.big-4 {
+    background-size: 110% auto;
+}
+
+.places li.parallel-37 {
+    background-size: 110% auto;
+}
+
+.places li.parallel-37 a {
+    color: #111;
+}
+
+.places li.parallel-37 .description {
+    color: #333;
+}
+
+.places a {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    font-weight: 300;
+    height: 300px;
+    padding: 30px;
+    text-decoration: none;
+}
+
+.places .title {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+.description {
+    color: #ddd;
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+footer {
+    display: none;
+    font-size: 80%;
+    opacity: 0.5;
+    text-align: center;
+}
+
+input[type=text],
+input[type=number],
+input[type=url],
+button,
+textarea {
+    .transition(~".25s border, .5s box-shadow");
+    .box-shadow(-1px -1px 1px #eee inset, 1px 1px 1px #eee inset);
+    background: #fff;
+    border: 1px solid #999;
+    color: #666;
+    font: inherit;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+    padding: 8px 10px;
+}
+
+button {
+    background: #999;
+    border-color: #666;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #666;
+    border-color: #333;
+}
+
+button[disabled] {
+    background: #eee;
+    border-color: #ccc;
+    color: #ccc;
+    cursor: default;
+}
+
+input[type=text]:focus,
+input[type=number]:focus {
+    .box-shadow(-1px -1px 1px #ddd inset, 1px 1px 1px #ddd inset);
+    background: lighten(#eee, 5%);
+    border-color: #777;
+    color: #000;
+    outline: 0;
+    outline: thin dotted \9;
+}
+
+input[type=number] {
+    width: 75px;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto 1em;
+    width: 90%;
+}
+
+label {
+    display: block;
+    vertical-align: top;
+}
+
+label b {
+    display: block;
+    font-size: 11px;
+    padding-bottom: .5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.answers {
+    display: none;
+    border-top: 1px solid #ccc;
+    margin: 3em auto 1em;
+    padding-top: 3em;
+    width: 720px;
+}
+
+h2 {
+    color: #666;
+    font-size: 32px;
+    margin: 0 0 1em;
+}
+
+.answers ul {
+}
+
+.answers li + li {
+    border-top: 1px solid #eee;
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+ol {
+    list-style-type: upper-roman;
+    margin: 1em 0;
+}
+
+ol li + li {
+    margin-top: 1em;
+}
+
+ol input {
+    width: 100%;
+}
+
+button {
+    margin-top: 2em;
+}
+
+main {
+}
+
+nav, .content {
+    background: #fff;
+}
+
+.content {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+.submit-section {
+    padding-left: 60px;
+}
+
+h1.step-type {
+    counter-reset: item;
+}
+
+h1.step {
+    color: #333;
+    counter-increment: item;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 300;
+}
+
+h1.step {
+    margin: 30px 0 15px;
+    position: relative;
+}
+
+h1.step::before {
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    color: #999;
+    content: counter(item);
+    display: block;
+    float: left;
+    font-size: 12px;
+    font-weight: 300;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    top: -4px;
+    left: -45px;
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+}
+
+h1.step-type::before {
+    display: none;
+}
+
+h1.step-active {
+    color: #000;
+}
+
+h1.step-active::before {
+    border-color: #666;
+    color: #333;
+}
+
+@media (min-width: 800px) {
+    main {
+        margin: 20px auto;
+        width: 800px;
+    }
+}
+
+@media (min-width: 1000px) {
+    main {
+        margin: 40px auto;
+        width: 1000px;
+    }
+}
+
+@media (min-width: 1200px) {
+    main {
+        margin: 60px auto;
+        width: 1200px;
+    }
+}
+
+input[name=manifest] {
+    width: 50%;
+}
+
+.submit-buttons {
+    font-size: 0;
+}
+
+.submit-buttons li {
+    border: 3px solid transparent;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+.submit-buttons a {
+    background: #eceef4;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #65676b;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin: -1px;
+    padding: 80px 0 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+}
+
+.submit-buttons a:hover {
+    border-color: #999;
+}
+
+.submit-buttons .selected,
+.submit-buttons .selected a {
+    border-color: #78a8df;
+}
+
+.submit-buttons .selected::after {
+    background: #78a8df;
+    border-radius: 30px;
+    border: 3px solid #fff;
+    bottom: -15px;
+    color: #fff;
+    content: "\2714";
+    display: block;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: -15px;
+    text-align: center;
+    width: 30px;
+}
