@@ -25,8 +25,14 @@
                     </section>
                     <section class="submit-section submit-section-upload">
                         <h1 class="step step-upload step-active">Upload</h1>
-                        <p>Submit your app manifest URL</p>
-                        <input type="url" name="manifest=">
+                        <div data-submit-type="hosted">
+                            <p><label for="manifest">Submit your app manifest URL</label></p>
+                            <p><input type="url" name="manifest" placeholder="http://"></p>
+                        </div>
+                        <div data-submit-type="packaged">
+                            <p><label for="manifest">Upload your .zip</label></p>
+                            <p><input type="file" name="package"></p>
+                        </div>
                     </section>
                     <section class="submit-section submit-section-details">
                         <h1 class="step step-details">Details</h1>
@@ -54,24 +60,7 @@
                 </form>
             </div>
         </main>
-        <script>
-            var d = document;
-            var hosted = d.querySelector('[data-type=hosted]');
-            var packaged = d.querySelector('[data-type=packaged]');
-            function toggleSubmitTypes() {
-                var hash = window.location.hash;
-                if (hash === '#hosted') {
-                    packaged.classList.remove('selected');
-                    hosted.classList.add('selected');
-                } else {
-                    packaged.classList.add('selected');
-                    hosted.classList.remove('selected');
-                }
-            }
-            window.addEventListener('hashchange', function() {
-                toggleSubmitTypes();
-            }, false);
-            toggleSubmitTypes();
-        </script>
+        <script type="text/javascript" src="zepto.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
     </body>
 </html>

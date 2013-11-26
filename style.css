@@ -476,7 +476,8 @@ nav, .content {
     padding-left: 60px;
 }
 
-h1.step-type {
+/* Start counting at "Upload" step. */
+.submit-section-upload {
     counter-reset: item;
 }
 
@@ -559,6 +560,7 @@ input[name=manifest] {
     border-radius: 3px;
     display: inline-block;
     margin-right: 20px;
+    pointer-events: none;
     position: relative;
 }
 
@@ -601,4 +603,37 @@ input[name=manifest] {
     right: -15px;
     text-align: center;
     width: 30px;
+    z-index: 2;
+}
+
+.submit-buttons li::before {
+    color: #78a8df;
+    content: "";
+    display: block;
+    font: 24px/95px monospace;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: -1px 0 2px #fff;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.submit-buttons li[data-type="hosted"]::before {
+    content: "WWW";
+}
+
+.submit-buttons li[data-type="packaged"]::before {
+    content: ".ZIP";
+}
+
+.submit-content[data-submit-type="packaged"] [data-submit-type="packaged"],
+.submit-content[data-submit-type="hosted"] [data-submit-type="hosted"] {
+    display: block;
+}
+.submit-content[data-submit-type="packaged"] [data-submit-type="hosted"],
+.submit-content[data-submit-type="hosted"] [data-submit-type="packaged"] {
+    display: none;
 }
