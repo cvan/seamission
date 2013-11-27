@@ -15,7 +15,7 @@
                 <li><a href="#">Testing Tools</a></li>
             </nav>
             <div class="content submit-content">
-                <form>
+                <form class="form-validate">
                     <section class="submit-section submit-section-type">
                         <h1 class="step step-type">Select app type</h1>
                         <ul class="submit-buttons">
@@ -27,11 +27,13 @@
                         <h1 class="step step-upload step-active">Upload</h1>
                         <div data-submit-type="hosted">
                             <p><label for="manifest">Submit your app manifest URL</label></p>
-                            <p><input type="url" name="manifest" placeholder="http://"></p>
+                            <p><input type="url" name="manifest" pattern="https?://.*" placeholder="http://" required></p>
+                            <p><button disabled name="validate" type="submit">Validate</button</p>
                         </div>
                         <div data-submit-type="packaged">
                             <p><label for="manifest">Upload your .zip</label></p>
-                            <p><input type="file" name="package"></p>
+                            <p><input type="file" name="package" required></p>
+                            <p><button disabled name="validate" type="submit">Validate</button</p>
                         </div>
                     </section>
                     <section class="submit-section submit-section-details">
