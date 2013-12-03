@@ -637,3 +637,8 @@ input[name=manifest] {
 .submit-content[data-submit-type="hosted"] [data-submit-type="packaged"] {
     display: none;
 }
+
+:invalid {
+    border-color: red;
+    color: red;
+}
