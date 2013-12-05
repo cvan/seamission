@@ -639,6 +639,6 @@ input[name=manifest] {
 }
 
 :invalid {
-    border-color: red;
-    color: red;
+    border-color: red !important;
+    color: red !important;
 }
