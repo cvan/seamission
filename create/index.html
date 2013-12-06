@@ -14,23 +14,41 @@
                     <div class="phone">
                         <div class="phone-app phone-default" data-default-name="My App">My App</div>
                     </div>
+                    <textarea class="manifest"></textarea>
                 </aside>
                 <form class="form-validate">
                     <h1>Create a Manifest</h1>
                     <p>
                         <label for="name">Name</label>
-                        <input type="text" name="name" required placeholder="My App">
+                        <input type="text" id="name" name="name" required placeholder="My App" data-manifest="flat">
                     </p>
-                     <p>
-                        <label for="url">Icon URL</label>
-                        <input type="url" name="icon" required>
-                    </p>
-<!--
-                     <p>
+                    <p>
                         <label for="url">App URL</label>
-                        <input type="url" name="url" required>
+                        <input type="url" id="url" name="url" required placeholder="http://myapp.org" data-manifest="flat">
                     </p>
--->
+                    <p>
+                        <label for="icon">Icon URL</label>
+                        <input type="url" id="icon" name="icon" required>
+                    </p>
+                    <p>
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" data-manifest="flat"></textarea>
+                    </p>
+                    <p>
+                        <label for="appcache_path">Application Cache path</label>
+                        <input type="url" id="appcache_path" name="appcache_path" required placeholder="http://myapp.org/manifest.appcache" data-manifest="flat">
+                    </p>
+                    <p>
+                        <label for="developer.name">Developed by</label>
+                        <input type="text" id="developer.name" name="developer.name" required placeholder="My Team Name">
+                        <input type="url" id="developer.url" name="developer.url" required placeholder="http://myteam.org/myapp/">
+                    </p>
+                    <p>
+                        <div class="label">Fullscreen</div>
+                        <label class="inline"><input type="radio" id="fullscreen-yes" name="fullscreen" required value="true" data-manifest="flat"> Yes</label>
+                        <label class="inline"><input type="radio" id="fullscreen-no" name="fullscreen" required value="" data-manifest="flat"> No</label>
+                    </p>
+
                     <!--
                     <section class="submit-section submit-section-type">
                         <h1 class="step step-type">Select app type</h1>

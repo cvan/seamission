@@ -41,6 +41,12 @@
         }
     }
     $d.on('change keyup paste', 'input, select, textarea', function(e) {
+        var $this = $(this);
+        // Add classes so we can make red errors only after some bad data has
+        // been input.
+        $this.addClass('focused');
+        $this.closest('label').addClass('focused').toggleClass('invalid', !this.checkValidity());
+        $this.siblings('label').addClass('focused').toggleClass('invalid', !this.checkValidity());
         checkValid(e.target.form);
     }).on('loaded decloak', function() {
         $('form:not([novalidate])').each(function() {
@@ -58,17 +64,49 @@
     }
 
     var $phoneApp = $('.phone-app');
+    var $manifest = $('.manifest');
+
+    function Manifest(defaultObj) {
+        this.data = defaultObj || {};
+        this.render();
+    }
+    Manifest.prototype.render = function() {
+        var pretty = JSON.stringify(this.data, function(k, v) {
+            // Show only non-empty values.
+            return v || undefined;
+        }, 4);
+        $manifest.val(pretty);
+    };
+    Manifest.prototype.set = function(k, v) {
+        this.data[k] = v;
+        this.render();
+    };
+    Manifest.prototype.get = function(k) {
+        return this.data[k];
+    };
+
+    var manifest = new Manifest({
+        name: 'My App'
+    });
+
+    // Update manifest on change.
+    $d.on('keyup change paste blur', '[data-manifest=flat]', function() {
+        var $this = $(this);
+        var val = $this.val();
+        manifest.set($this.attr('name'), val || $this.attr('placeholder'));
+    });
 
     $d.on('keyup change paste blur', 'input[name=name]', function() {
         var $this = $(this);
-        var val = $this.val();
-        $phoneApp.text(val || $phoneApp.data('defaultName'));
+        var val = $this.val() || $phoneApp.data('defaultName');
+        $phoneApp.text(val);
     }).on('keyup change paste blur', 'input[name=icon]', function() {
         var $this = $(this);
         var val = $this.val();
         var valid = !!val && this.checkValidity();
         console.log(val)
         // TODO: Escape text.
+        // TODO: Wait a few seconds until the user is done before rendering.
         $phoneApp.attr('data-icon', val)
                  .css('background-image', 'url(' + escapeText(val) + ')');
         if (valid) {
@@ -91,8 +129,16 @@
                    val.substring(0,7) !== 'http://') {
             $this.val('http://' + val);
         }
-    }).find('input[type=url]').attr('pattern', 'https?://.*')
-                              .attr('placeholder', 'http://');
+    }).find('input[type=url]').each(function() {
+        // Set defaults.
+        var $this = $(this);
+        if (!$this.attr('pattern')) {
+            $this.attr('pattern', 'https?://.*');
+        }
+        if (!$this.attr('placeholder')) {
+            $this.attr('placeholder', 'http://');
+        }
+    });
 
     var caps = {
         localStorage: false,

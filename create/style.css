@@ -237,13 +237,19 @@ input[type=number] {
 
 textarea {
     display: block;
-    margin: 0 auto 1em;
-    width: 90%;
+    width: 100%;
 }
 
-label {
+label,
+.label {
+    cursor: pointer;
     display: block;
     vertical-align: top;
+}
+
+label.inline,
+.label.inline {
+    display: inline-block;
 }
 
 label b {
@@ -471,7 +477,8 @@ input[name=manifest] {
     display: none;
 }
 
-:invalid {
+.focused:invalid,
+.focused.invalid {
     border-color: red;
     color: red;
 }
@@ -479,6 +486,8 @@ input[name=manifest] {
 .phone {
     background: url(../img/Alcatel-One-Touch-Fire.png) 0 -60px no-repeat;
     background-size: 100% auto;
+    /*min-height: 600px;
+    min-width: 470px;*/
     min-height: 600px;
     min-width: 470px;
     position: relative;
@@ -529,7 +538,7 @@ form p {
     margin-bottom: 30px;
 }
 
-form input {
+input[type=file], input[type=text], input[type=url], textarea {
     width: 100%;
 }
 
@@ -539,4 +548,11 @@ form h1 {
     font-weight: 300;
     margin-bottom: 40px;
     padding-bottom: 10px;
+}
+
+.manifest {
+    /* TODO: Add line numbers */
+    font: 12px/14px monospace;
+    margin-top: -100px;
+    min-height: 300px;
 }
