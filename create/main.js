@@ -66,23 +66,43 @@
     var $phoneApp = $('.phone-app');
     var $manifest = $('.manifest');
 
+    function isArray(list) {
+        return typeof list === 'object' && list.hasOwnProperty('length');
+    }
+
+    function arrayRemoveByKey(array, value) {
+        var idx = null;
+        while ((idx = array.indexOf(value)) !== -1) {
+            array.splice(idx, 1);
+        }
+        return array;
+    }
+
     function Manifest(defaultObj) {
         this.data = defaultObj || {};
         this.render();
     }
-    Manifest.prototype.render = function() {
-        var pretty = JSON.stringify(this.data, function(k, v) {
-            // Show only non-empty values.
-            return v || undefined;
-        }, 4);
-        $manifest.val(pretty);
-    };
-    Manifest.prototype.set = function(k, v) {
-        this.data[k] = v;
-        this.render();
-    };
-    Manifest.prototype.get = function(k) {
-        return this.data[k];
+    Manifest.prototype = {
+        render: function() {
+            var pretty = JSON.stringify(this.data, function(k, v) {
+                // Show only non-empty values.
+                if (isArray(v)) {
+                    if (!v.length) {
+                        return undefined;
+                    }
+                    v.sort();
+                }
+                return v || undefined;
+            }, 4);
+            $manifest.val(pretty);
+        },
+        set: function(k, v) {
+            this.data[k] = v;
+            this.render();
+        },
+        get: function(k) {
+            return this.data[k];
+        }
     };
 
     var manifest = new Manifest({
@@ -90,10 +110,37 @@
     });
 
     // Update manifest on change.
-    $d.on('keyup change paste blur', '[data-manifest=flat]', function() {
+    $d.on('keyup change paste blur', '[data-manifest=string]', function() {
         var $this = $(this);
         var val = $this.val();
         manifest.set($this.attr('name'), val || $this.attr('placeholder'));
+    }).on('keyup change paste blur', '[data-manifest=boolean]', function() {
+        var $this = $(this);
+        var val = $this.val();
+        if (val === 'false') {
+            val = false;
+        }
+        manifest.set($this.attr('name'), !!val);
+    }).on('keyup change paste blur', '[data-manifest=list]', function() {
+        var $this = $(this);
+        var name = $this.attr('name');
+        var val = $this.val();
+
+        var list = manifest.get(name);
+        // `list` is an array.
+        if (isArray(list)) {
+            if (list.indexOf(val) === -1) {
+                list.push(val);
+            }
+        } else {
+            list = [val];
+        }
+
+        if (!$this.is(':checked')) {
+            arrayRemoveByKey(list, val);
+        }
+
+        manifest.set(name, list);
     });
 
     $d.on('keyup change paste blur', 'input[name=name]', function() {

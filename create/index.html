@@ -20,11 +20,11 @@
                     <h1>Create a Manifest</h1>
                     <p>
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="My App" data-manifest="flat">
+                        <input type="text" id="name" name="name" required placeholder="My App" data-manifest="string">
                     </p>
                     <p>
                         <label for="url">App URL</label>
-                        <input type="url" id="url" name="url" required placeholder="http://myapp.org" data-manifest="flat">
+                        <input type="url" id="url" name="url" required placeholder="http://myapp.org" data-manifest="string">
                     </p>
                     <p>
                         <label for="icon">Icon URL</label>
@@ -32,11 +32,11 @@
                     </p>
                     <p>
                         <label for="description">Description</label>
-                        <textarea id="description" name="description" data-manifest="flat"></textarea>
+                        <textarea id="description" name="description" data-manifest="string"></textarea>
                     </p>
                     <p>
                         <label for="appcache_path">Application Cache path</label>
-                        <input type="url" id="appcache_path" name="appcache_path" required placeholder="http://myapp.org/manifest.appcache" data-manifest="flat">
+                        <input type="url" id="appcache_path" name="appcache_path" required placeholder="http://myapp.org/manifest.appcache" data-manifest="string">
                     </p>
                     <p>
                         <label for="developer.name">Developed by</label>
@@ -45,73 +45,41 @@
                     </p>
                     <p>
                         <div class="label">Fullscreen</div>
-                        <label class="inline"><input type="radio" id="fullscreen-yes" name="fullscreen" required value="true" data-manifest="flat"> Yes</label>
-                        <label class="inline"><input type="radio" id="fullscreen-no" name="fullscreen" required value="" data-manifest="flat"> No</label>
+                        <label class="inline"><input type="radio" id="fullscreen-yes" name="fullscreen" required value="true" data-manifest="boolean"> Yes</label>
+                        <label class="inline"><input type="radio" id="fullscreen-no" name="fullscreen" required value="" data-manifest="boolean"> No</label>
                     </p>
+                    <p>
+                        <div class="label">Orientation</div>
 
-                    <!--
-                    <section class="submit-section submit-section-type">
-                        <h1 class="step step-type">Select app type</h1>
-                        <ul class="submit-buttons">
-                            <li data-type="hosted"><a href="#hosted">Hosted</a></li>
-                            <li data-type="packaged"><a href="#packaged">Packaged</a></li>
-                        </ul>
-                    </section>
-                    <section class="submit-section submit-section-upload">
-                        <h1 class="step step-upload step-active">Upload</h1>
-                        <div data-submit-type="hosted">
-                            <p><label for="manifest">Submit your app URL</label></p>
-                            <p><input type="url" name="url" required></p>
-                            <p><button disabled name="validate" type="submit">Validate</button</p>
-                        </div>
-                        <div data-submit-type="packaged">
-                        </div>
-                    </section>
-                    <section class="submit-section submit-section-details">
-                        <h1 class="step step-details">Details</h1>
-                        <p>
-                            http://w3c.github.io/manifest/
+                        <label class="inline"><input type="checkbox" id="orientation-portrait" name="orientation" value="portrait" data-manifest="list">
+                            <b>portrait</b> &mdash; locked in portrait holding the device upright and upside down
+                        </label>
+                        <br>
 
-                            (Offline?)
-                            (Languages?)
+                        <label class="inline"><input type="checkbox" id="orientation-portrait-primary" name="orientation" value="portrait-primary" data-manifest="list">
+                            <b>portrait-primary</b> &mdash; locked in portrait holding the device upright
+                        </label>
+                        <br>
 
-                            One-handed/two-handed/desktop
+                        <label class="inline"><input type="checkbox" id="orientation-portrait-secondary" name="orientation" value="portrait-secondary" data-manifest="list">
+                            <b>portrait-secondary</b> &mdash; locked in portrait holding the device upside down
+                        </label>
+                        <br>
 
-                            Feature requirements
+                        <label class="inline"><input type="checkbox" id="orientation-landscape" name="orientation" value="landscape" data-manifest="list">
+                            <b>landscape</b> &mdash; locked in landscape holding the device upright or upside down
+                        </label>
+                        <br>
 
-                            Logo
-                            Description
-                            Slug
-                            Categories
+                        <label class="inline"><input type="checkbox" id="orientation-landscape-primary" name="orientation" value="landscape-primary" data-manifest="list">
+                            <b>landscape-primary</b> &mdash; locked in landscape holding the device upright
+                        </label>
+                        <br>
 
-                            Privacy Policy (optional for packaged)
-                                we won't share your information at all
-                                checkboxes
-
-                            Screenshots
-                                crop/reimage screenshots
-
-                            Price
-
-                            --
-
-                            (Have a developer profile)
-                            Support Email
-
-                            Homepage
-                            Support URL
-
-                            Publish ASAP
-
-                            Content Ratings
-                            in China?
-                        </p>
-                    </section>
-                    <section class="submit-section submit-section-preview">
-                        <h1 class="step step-preview">Preview</h1>
-                        <p></p>
-                    </section>
-                    -->
+                        <label class="inline"><input type="checkbox" id="orientation-landscape-secondary" name="orientation" value="landscape-secondary" data-manifest="list">
+                            <b>landscape-secondary</b> &mdash; locked in landscape holding the device upside down
+                        </label>
+                    </p>
                 </form>
             </div>
         </main>
