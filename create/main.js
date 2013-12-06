@@ -78,6 +78,12 @@
         return array;
     }
 
+    function parseURL(href) {
+        var a = document.createElement('a');
+        a.href = href;
+        return a;
+    }
+
     function Manifest(defaultObj) {
         this.data = defaultObj || {};
         this.render();
@@ -141,6 +147,10 @@
         }
 
         manifest.set(name, list);
+    }).on('keyup change paste blur', '[name=url]', function() {
+        var $this = $(this);
+        var val = $this.val();
+        manifest.set('launch_path', parseURL(val).pathname);
     });
 
     $d.on('keyup change paste blur', 'input[name=name]', function() {
